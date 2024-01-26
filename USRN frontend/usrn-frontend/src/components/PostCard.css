@@ -1,0 +1,31 @@
+.main-container {
+    color: #454545
+}
+
+.blog-container {
+    display: flex;
+    ;
+}
+
+.blog-image {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.picture-left {
+    float: left;
+    width: 40%;
+    height: 40%;
+    overflow: hidden;
+    margin-right: 1em;    
+}
+
+.content {
+    float: left;
+    width: 55%;;
+}
+.blog-title {
+    
+}
+

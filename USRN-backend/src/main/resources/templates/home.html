@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class = "container">
+        <h1>USRN BLOGS</h1>
+
+        <div>
+            <div class = "post" th:each="post : ${posts}">
+                <h2><a th:href="@{'/posts/' + ${post.id}}"
+                    th:text="${post.title}"
+                >Title</a></h2>
+                <h5 th:text="'Published on ' + ${post.createdAt}"> Created at</h5>
+                <p th:text="${post.body}">body text</p>
+                <br/>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
