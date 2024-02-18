@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+<<<<<<< HEAD
+=======
+import "./Register.css"
+>>>>>>> 816073e (first commit)
 
 const Register = () => {
   const [user, setUser] = useState({ 
@@ -30,6 +34,7 @@ const Register = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
@@ -49,10 +54,34 @@ const Register = () => {
         <label>
           Password:
           <input type="password" name="password" value={user.password} onChange={handleChange} />
+=======
+    <div class='container'>
+      <div class="form-box">
+      <h1>Register</h1>
+      <form onSubmit={handleSubmit}>
+      <label>
+          <input type="text" placeholder="First Name" value={user.firstName} onChange={handleChange} />
+        </label>
+        <label>
+          
+          <input type="text" placeholder="Last Name" value={user.lastName} onChange={handleChange} />
+        </label>
+        <label>
+          
+          <input type="text" placeholder="Email" value={user.email} onChange={handleChange} />
+        </label>
+        <br />
+        <label>
+          <input type="password" placeholder="Password" value={user.password} onChange={handleChange} />
+>>>>>>> 816073e (first commit)
         </label>
         <br />
         <button type="submit">Login</button>
       </form>
+<<<<<<< HEAD
+=======
+      </div>
+>>>>>>> 816073e (first commit)
     </div>
   );
 };

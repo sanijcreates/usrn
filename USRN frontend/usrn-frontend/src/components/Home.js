@@ -27,9 +27,13 @@ export default function Home() {
     return (
         <div className="home-container">
             <Navbar />
+<<<<<<< HEAD
             {user && <button onClick={Logout}>Logout</button>}
            {!user && <Link to = "/login" >Login</Link>}
            {!user && <Link to = "/register">Register</Link>}
+=======
+            {user && <button onClick={Logout}>Logout</button>}  
+>>>>>>> 816073e (first commit)
             <Posts />
         </div>
     )

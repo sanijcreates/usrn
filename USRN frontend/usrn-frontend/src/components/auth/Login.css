@@ -1,0 +1,81 @@
+.container {
+   display: flex;
+   justify-content: center; /* Center horizontally */
+   align-items: center; /* Center vertically */
+   height: 70vh; /* Full viewport height */
+ }
+ 
+ .form-box {
+   width: 550px; /* Set width of the login form */
+   padding: 20px; /* Add some padding */
+   border: 1px solid #ccc; /* Add border */
+   border-radius: 10px; /* Add border-radius for rounded corners */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+ }
+ 
+ .head h1, .head h3 {
+   text-align: Left; /* Center text */
+   
+ }
+ .head h1{
+   font-size: 30px;
+ }
+ .head h3{
+   font-size: 13px;
+ }
+ label {
+   display: block; /* Make label take full width */
+ }
+ 
+ input[type="text"],
+ input[type="password"] {
+   width: 100%; /* Make inputs take full width */
+   padding: 10px; /* Add padding */
+   border: 1px solid #ccc; /* Add border */
+   border-radius: 2px; /* Add border-radius */
+ }
+ 
+ button {
+   width: 100%; /* Make button take full width */
+   padding: 10px; /* Add padding */
+   background-color: #007bff; /* Blue background color */
+   color: #fff; /* White text color */
+   border: none; /* Remove border */
+   border-radius: 5px; /* Add border-radius */
+   cursor: pointer; /* Add pointer cursor */
+ }
+ 
+ button:hover {
+   background-color: #0056b3; /* Darker blue on hover */
+ }
+ 
+ a {
+   text-align: center; /* Center link text */
+   display: block; /* Make link take full width */
+ }
+ p {
+   position: relative;
+   padding: 0 20px; /* Adjust padding as needed */
+   text-align: center; /* Center text */
+   line-height: 1.5; /* Adjust line height as needed */
+ }
+ 
+ p::before,
+ p::after {
+   content: ""; /* Empty content */
+   position: absolute;
+   bottom: 0; /* Position at the bottom of the paragraph */
+   width: 40%; /* Adjust width as needed */
+   height: 1px; /* Height of the line */
+   background-color: #000; /* Color of the line */
+ }
+ 
+ p::before {
+   left: 0; /* Position on the left side */
+ }
+ 
+ p::after {
+   right: 0; /* Position on the right side */
+ }
+ 
+ 

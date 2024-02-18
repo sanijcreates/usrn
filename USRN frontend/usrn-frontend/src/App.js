@@ -15,6 +15,10 @@ import Post from "./components/Post";
 */
 
 function App() {
+<<<<<<< HEAD
+=======
+  
+>>>>>>> 816073e (first commit)
 
   return (
     <BrowserRouter>
