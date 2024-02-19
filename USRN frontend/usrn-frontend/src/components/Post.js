@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom';
 import axios from 'axios';
+import "./Post.css"
 
 
 export default function Post() {
@@ -41,7 +42,7 @@ export default function Post() {
                 <h4>Written by: {post.account.firstName}</h4>
                 <h4>Created at: {post.createdAt}</h4>
             </div>
-            <p>{post.body}</p>
+            <p className='body'>{post.body}</p>
         </div>
     )
 }

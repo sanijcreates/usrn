@@ -27,9 +27,6 @@ export default function Home() {
     return (
         <div className="home-container">
             <Navbar />
-            {user && <button onClick={Logout}>Logout</button>}
-           {!user && <Link to = "/login" >Login</Link>}
-           {!user && <Link to = "/register">Register</Link>}
             <Posts />
         </div>
     )

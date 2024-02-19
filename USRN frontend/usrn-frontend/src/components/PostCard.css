@@ -3,8 +3,7 @@
 }
 
 .blog-container {
-    display: flex;
-    ;
+    display: flex; ;
 }
 
 .blog-image {
@@ -25,7 +24,10 @@
     float: left;
     width: 55%;;
 }
+
 .blog-title {
     
 }
+
+
 

@@ -12,7 +12,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -65,5 +67,18 @@ public class HomeController {
             return ResponseEntity.status(404)
                     .body("Account not found");
         }
+    }
+
+    @PostMapping("/fileSystem")
+    public ResponseEntity<?> uploadImageToFileSystem(@RequestParam("image") MultipartFile file) throws IOException {
+        String uploadImage = postService.uploadImageToFileSystem(file);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(uploadImage);
+    }
+
+    @GetMapping("/fileSystem")
+    public ResponseEntity<?> downloadImageFromFileSystem() {
+        return ResponseEntity.status(HttpStatus.OK)
+                .body("asda");
     }
 }

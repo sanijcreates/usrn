@@ -22,6 +22,10 @@ const Login = () => {
       });
   };
 
+  function handleCreateAcc() {
+    window.location.href = "/register"
+  }
+
   return (
     <div>
       <h2>Login</h2>
@@ -36,7 +40,11 @@ const Login = () => {
           <input type="password" name="password" value={user.password} onChange={handleChange} />
         </label>
         <br />
-        <button type="submit">Login</button>
+        <div>
+          <button type="submit">Login</button>
+          <p>No Account?</p>
+          <button onClick={handleCreateAcc}>Create an account</button>
+        </div>
       </form>
     </div>
   );

@@ -3,10 +3,25 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: teal;
-    color: #fff;
+    color: #000;
+    height: 20px;
 }
 
 .logo {
-    font-size:32px;
+    height: 100px;
+    color: #000;
+}
+
+.button {
+    color: blue;
+    background: none;
+    border: none;
+}
+
+.button:hover {
+    text-decoration: underline;
+}
+
+.logout {
+    margin-left: 10px;
 }

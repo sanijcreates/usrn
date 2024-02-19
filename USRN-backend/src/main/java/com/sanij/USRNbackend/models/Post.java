@@ -25,6 +25,8 @@ public class Post {
 
     private LocalDateTime createdAt;
 
+    private String filepath;
+
     public void setDescription(String desc) {
         this.body = desc;
     }

@@ -5,6 +5,8 @@ export default function PostCard(props) {
 
     const name = "Credits to " + props.authorFirstName + " " + props.authorLastName;
 
+    
+
     return (
         <div className='main-container'>
             <h3 className='blog-title'>{props.title}</h3>

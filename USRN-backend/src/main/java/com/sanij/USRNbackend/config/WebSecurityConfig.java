@@ -22,6 +22,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
     private static final String[] WHITELIST = {
+            "/fileSystem",
             "/h2-console/*",
             "/register",
             "/login",

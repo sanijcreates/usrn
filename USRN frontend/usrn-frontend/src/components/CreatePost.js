@@ -58,12 +58,12 @@ export default function CreatePost() {
             <form onSubmit={handleSubmit}>
                 <label>
                     Title:
-                    <input type= "text" name = "title" value= {post.title}onChange={handleChange}/>
+                    <input type= "text" name = "title" value= {post.title} onChange={handleChange}/>
                 </label>
                 <br />
                 <label>
                     Blog Body:
-                    <input type="text" name = "body" value = {post.body}onChange={handleChange}/>
+                    <textarea name = "body" value = {post.body} onChange={handleChange}/>
                 </label>
                 <br/>
                 <button type='submit'>Request for verification</button>
