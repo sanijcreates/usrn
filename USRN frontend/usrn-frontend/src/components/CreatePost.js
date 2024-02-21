@@ -13,12 +13,12 @@ export default function CreatePost() {
     useEffect(() => {
         let currUser = localStorage.getItem("user"); 
 
-        currUser = currUser.replace(/"/g, '');
+      
 
         if(currUser) {
             setUser(currUser);
         }
-    })
+    },[])
 
     const handleChange = (e) => {
         setPost({ ...post, [e.target.name]: e.target.value });

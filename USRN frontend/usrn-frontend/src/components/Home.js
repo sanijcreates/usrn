@@ -27,6 +27,7 @@ export default function Home() {
     return (
         <div className="home-container">
             <Navbar />
+            {user && <button onClick={Logout}>Logout</button>}  
             <Posts />
         </div>
     )

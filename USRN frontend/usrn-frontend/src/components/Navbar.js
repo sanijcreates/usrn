@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import "./Navbar.css"
+import { Link } from 'react-router-dom';
 import logo from "../assets/logo.png"
 
 export default function Navbar() {
@@ -29,14 +30,11 @@ export default function Navbar() {
         window.location.reload()
     }
     return (
-        <nav className='navbar'>
-            <img src={logo} className="logo" alt = "logo"></img>
-            
-            <div>
-                {user? <button onClick={handleClick}>Write a blog!</button> : <button className='button' onClick={goToLogin}>Be an Author!</button>}
-                {user && <button onClick={handleLogout} className='logout'>Logout</button>}   
+        <div className='navbar'>
+             <img src = {logo} className ="logo"/>  
+            <div className='icon'>
+            <button><Link onClick={handleClick}>Write a blog!</Link></button>
             </div>
-                    
-        </nav>
+        </div>
     )
 }

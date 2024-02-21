@@ -23,14 +23,16 @@ export default function Posts() {
 
     function metaBody(body) {
 
-        let def = body.substring(0,300);
+        var limit = 800;
 
-        if(body.length < 300) {
+        let def = body.substring(0,limit);
+
+        if(body.length < limit) {
             return body;
         }
 
         var final;
-        for(var i = 300; i >= 0; i--) {
+        for(var i = limit; i >= 0; i--) {
             if(def.charAt(i) ===  '.') {
                 final = def.substring(0, i+1);
                 break;
@@ -44,7 +46,7 @@ export default function Posts() {
         <div className="posts">
             {posts.map(post => (
                 post.verified &&
-                <Link to = {`/post/${post.id}`}><PostCard key = {post.id} id = {post.id} title = {post.title} metaBody = {metaBody(post.body)} imgSrc = {blogPic} authorFirstName = {post.account.firstName} authorLastName = {post.account.lastName}/>      </Link>             
+                <Link to = {`/post/${post.id}`} className="home_posts"><PostCard key = {post.id} id = {post.id} title = {post.title} metaBody = {metaBody(post.body)} imgSrc = {blogPic} authorFirstName = {post.account.firstName} authorLastName = {post.account.lastName} createdAt = {post.createdAt}/>     </Link>             
             ))}
         </div>
     )

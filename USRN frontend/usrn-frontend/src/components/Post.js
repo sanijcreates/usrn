@@ -37,7 +37,6 @@ export default function Post() {
     return (
         <div>
             <h1>{post.title}</h1>
-            <img src = {postId} alt="blog"/>
             <div>
                 <h4>Written by: {post.account.firstName}</h4>
                 <h4>Created at: {post.createdAt}</h4>
