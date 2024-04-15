@@ -30,7 +30,7 @@ public class SeedData implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        if(postService.getAllPosts().size() == 0) {
+        if(postService.getAllPosts().isEmpty()) {
 
             Authority user = new Authority();
             user.setName("ROLE_USER");
@@ -61,8 +61,8 @@ public class SeedData implements CommandLineRunner {
             authorityRepository.findByName("ROLE_ADMIN").ifPresent(authorities2::add);
             acc2.setAuthorities(authorities2);
 
-//            accountRepository.save(acc1);
-//            accountRepository.save(acc2);
+            accountRepository.save(acc1);
+            accountRepository.save(acc2);
 
             accountService.save(acc1);
             accountService.save(acc2);

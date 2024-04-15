@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import 'draft-js/dist/Draft.css'
+import { EditorState} from 'draft-js';
+import { stateToHTML } from 'draft-js-export-html';
+import {Editor } from 'react-draft-wysiwyg'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import "./CreatePost.css"
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import Login from './auth/Login'
 
 export default function CreatePost() {
 
@@ -8,12 +17,14 @@ export default function CreatePost() {
         body:''
     });
 
+    const [editorState, setEditorState] = useState(
+        () => EditorState.createEmpty(),
+    );
+
     const [user, setUser] = useState("");
 
     useEffect(() => {
         let currUser = localStorage.getItem("user"); 
-
-      
 
         if(currUser) {
             setUser(currUser);
@@ -26,10 +37,12 @@ export default function CreatePost() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        console.log(!user)
         if(!user) {
-            alert("Please Login to your account first")
-            return; 
+            <Popup open={!user}>
+                <div>Sign in</div>
+                <button>Sign in</button>
+            </Popup> 
         }
 
         axios.post('http://localhost:8080/posts/create', {
@@ -43,31 +56,46 @@ export default function CreatePost() {
             }
     })
             .then(res => {
-                console.log(res);
+                console.log(post.body);
                 window.location.href = "/"
             })
             .catch(err => {
-                console.log(user);
+                console.log(err);
                 console.log("Post failed", err)
             })
     }
+    
+    const hanldeEditorChange = (newEditorState) => {
+        setEditorState(newEditorState);
+        setPost(prevPost => ({
+            ...prevPost, 
+            body: stateToHTML(editorState.getCurrentContent())
+        }))
+    };
 
     return (
-        <div>
-            <h2>Write a blog</h2>
+        <div className='main-container'>
+            <h2 className='title-blog'>Write a blog</h2>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Title:
-                    <input type= "text" name = "title" value= {post.title} onChange={handleChange}/>
+                    <input type= "text" name = "title" value= {post.title} onChange={handleChange} placeholder='Title'/>
                 </label>
                 <br />
-                <label>
-                    Blog Body:
-                    <textarea name = "body" value = {post.body} onChange={handleChange}/>
-                </label>
+                <div className='editor'>
+                     <Editor
+                      editorState = {editorState} onEditorStateChange={hanldeEditorChange}
+                        placeholder='Blog Main Body' value = {post.body}
+                     />
+                </div>
                 <br/>
                 <button type='submit'>Request for verification</button>
             </form>
+            <Popup open={!user}>
+                <div className='login__popup'>
+                    <Login />
+                </div>
+            </Popup>
+           
         </div>
     );
 }

@@ -3,6 +3,7 @@ package com.sanij.USRNbackend.controllers;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.sanij.USRNbackend.models.Account;
 import com.sanij.USRNbackend.models.Post;
+import com.sanij.USRNbackend.repositories.AccountRepository;
 import com.sanij.USRNbackend.services.AccountService;
 import com.sanij.USRNbackend.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class HomeController {
     @Autowired
     public AccountService accountService;
 
+    @Autowired
+    public AccountRepository accountRepository;
+
     @GetMapping("/")
     public List<Post> home(){
         List<Post> posts = postService.getAllPosts();
@@ -42,6 +46,8 @@ public class HomeController {
         return postService.getAllPosts();
     }
 
+    //get author
+    @GetMapping("/authors/{")
     @GetMapping("/posts/{id}")
     public ResponseEntity<Optional<Post>> getPost(@PathVariable("id") Long id) {
         Optional<Post> post = postService.findById(id);
@@ -50,10 +56,11 @@ public class HomeController {
 
     @PostMapping("/posts/create")
     public ResponseEntity<Object> createPost(@RequestBody ObjectNode json) {
+        String emailWithoutQuotes = json.get("email").asText().substring(1, json.get("email").asText().length() - 1);
+        Optional<Account> acc = accountService.findByEmail(emailWithoutQuotes);
+        System.out.println(json);
 
-        System.out.println(json.get("email").toString());
-
-        Optional<Account> acc = accountService.findByEmail(json.get("email").asText());
+        System.out.println(acc);
         if(acc.isPresent()) {
             System.out.println(json.get("email").asText() + "is present");
             Account account = acc.get();
@@ -67,18 +74,5 @@ public class HomeController {
             return ResponseEntity.status(404)
                     .body("Account not found");
         }
-    }
-
-    @PostMapping("/fileSystem")
-    public ResponseEntity<?> uploadImageToFileSystem(@RequestParam("image") MultipartFile file) throws IOException {
-        String uploadImage = postService.uploadImageToFileSystem(file);
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(uploadImage);
-    }
-
-    @GetMapping("/fileSystem")
-    public ResponseEntity<?> downloadImageFromFileSystem() {
-        return ResponseEntity.status(HttpStatus.OK)
-                .body("asda");
     }
 }

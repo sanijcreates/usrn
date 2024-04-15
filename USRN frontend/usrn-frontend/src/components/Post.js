@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import {useParams} from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 import axios from 'axios';
 import "./Post.css"
+import { Link } from "react-router-dom";
 
 
 export default function Post() {
 
     const {postId} = useParams();
+    let location = useLocation()
+
+    console.log(location)
 
     const [post, setPost] = useState({
         title: '',
@@ -32,16 +36,35 @@ export default function Post() {
             }
         };
         fetchData();           
-    },);
+    },[]);
+
+    const crumb = () => {
+        return (
+            <div>
+                <Link to={"/"} >Home</Link>
+            </div>
+        )
+    }
+
+    const date = new Date(post.createdAt);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const formattedDate = date.toLocaleDateString(undefined, options);
 
     return (
-        <div>
-            <h1>{post.title}</h1>
-            <div>
-                <h4>Written by: {post.account.firstName}</h4>
-                <h4>Created at: {post.createdAt}</h4>
+        <div className='main-container'>
+            <div className='breadcrumb'>
+                <Link to={"/"} className='location'>Home </Link>
+                >
+                <Link to ={location} className='location'> {post.title}</Link>
             </div>
-            <p className='body'>{post.body}</p>
+            <h1 className='title'>{post.title}</h1>
+            
+            <div className = "credits">
+                    <span>{post.account.firstName + post.account.lastName}</span>
+                    <div className='vl'></div>
+                    <span>{formattedDate}</span>
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: post.body }} />
         </div>
     )
 }

@@ -1,3 +1,26 @@
 .body {
     white-space: pre-wrap;
 }
+
+.main-container {
+    padding: 50px;
+}
+
+.breadcrumb {
+    color: #757575;
+    font-size: 0.770rem;
+    text-decoration: none;
+}
+.location {
+    color: #757575;
+    text-decoration: none;
+}
+
+.location:hover {
+    text-decoration: underline;
+}
+
+.title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

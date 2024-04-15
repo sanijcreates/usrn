@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import "./Login.css";
+import { AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   // State to manage user input for email and password
@@ -33,44 +34,32 @@ const Login = () => {
   }
 
   return (
-    <div className="container">
-      <div className="form-box">
-        {/* Title */}
-        <div className='head'>
-          <h1>Login or Register</h1>
-          <h3>EMAIL</h3>
-        </div>
-        {/* Input fields and form */}
+      <div className="form login">
+        <header className='login__header'>Login</header>
         <div className="input-Field">
           <form onSubmit={handleSubmit}>
-            {/* Email input */}
-            <label>
+            <div className='field input-field'>
               <input type="text" name="email" placeholder="Enter your email" value={user.email} onChange={handleChange} />
-            </label>
-            <br />
-            {/* Password input */}
-            <label>
-              <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} />
-            </label>
-            <br />
-            {/* Forgot password link */}
-            <a href="https://www.youtube.com/watch?v=LTPGyaEyTI4">Forgot password? </a>
-            <br />
-            {/* Submit button */}
-            <button type="submit">Login</button>
-            <br />
-            {/* Line */}
-            <p>Or</p>
-            {/* Register link */}
-            <div className='register'>
-              {/* Show register link if user is not logged in */}
-              <Link to="/Register"><button>Register</button></Link>
             </div>
+            <div className='field input-field'>
+              <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} />
+              <AiFillEyeInvisible />
+            </div>
+            <div class="form-link">
+                      <a href="#" class="forgot-pass">Forgot password?</a>
+                  </div>
+                  <div class="field button-field">
+                      <button>Login</button>
+                  </div>
+      
+                  <div class="form-link">
+                  <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+              </div>
             <br/>
           </form>
         </div>
       </div>
-    </div>
+    
   );
 };
 

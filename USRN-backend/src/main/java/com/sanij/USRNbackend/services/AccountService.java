@@ -31,11 +31,5 @@ public class AccountService {
         return accountRepository.findOneByEmail(mail);
     }
 
-//    public boolean findByEmail(String mail) {
-//        if (accountRepository.findOneByEmail(mail).isPresent()) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
+
 }

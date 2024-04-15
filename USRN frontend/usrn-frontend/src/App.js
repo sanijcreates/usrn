@@ -4,6 +4,8 @@ import Login from "./components/auth/Login";
 import CreatePost from "./components/CreatePost";
 import Register from "./components/auth/Register";
 import Post from "./components/Post";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer"
 
 //TODO 
 /*
@@ -18,15 +20,21 @@ function App() {
   
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/login" element={<Login />}/> 
-        <Route path = "/createPost" element = {<CreatePost />}  />     
-        <Route path = "/register" element = {<Register />} />
-        <Route path = "/post/:postId" element = {<Post />}/>
-      </Routes>
-    </BrowserRouter>
+    
+    
+      <BrowserRouter>
+      <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<Login />}/> 
+          <Route path = "/createPost" element = {<CreatePost />}  />     
+          <Route path = "/register" element = {<Register />} />
+          <Route path = "/post/:postId" element = {<Post />}/>
+        </Routes>
+      <Footer />
+        
+      </BrowserRouter>
+    
   );
 
 }

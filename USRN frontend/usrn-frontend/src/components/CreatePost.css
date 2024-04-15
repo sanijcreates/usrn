@@ -1,0 +1,9 @@
+.title-blog {
+    text-align: center;
+}
+
+.editor {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 10px;
+}
