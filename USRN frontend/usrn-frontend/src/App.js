@@ -6,6 +6,7 @@ import Register from "./components/auth/Register";
 import Post from "./components/Post";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"
+import Profile from "./components/Profile";
 
 //TODO 
 /*
@@ -30,6 +31,7 @@ function App() {
           <Route path = "/createPost" element = {<CreatePost />}  />     
           <Route path = "/register" element = {<Register />} />
           <Route path = "/post/:postId" element = {<Post />}/>
+          <Route path = "/profile" element = {<Profile/>}/>
         </Routes>
       <Footer />
         

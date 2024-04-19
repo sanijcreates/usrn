@@ -45,15 +45,15 @@ const Login = () => {
               <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} />
               <AiFillEyeInvisible />
             </div>
-            <div class="form-link">
-                      <a href="#" class="forgot-pass">Forgot password?</a>
+            <div className="form-link">
+                      <a href="#" className="forgot-pass">Forgot password?</a>
                   </div>
-                  <div class="field button-field">
+                  <div className="field button-field">
                       <button>Login</button>
                   </div>
       
-                  <div class="form-link">
-                  <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                  <div className="form-link">
+                  <span>Don't have an account? <a href="#" className="link signup-link">Signup</a></span>
               </div>
             <br/>
           </form>
