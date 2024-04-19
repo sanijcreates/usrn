@@ -1,45 +1,66 @@
-body {
-  margin: 0;
-}
+/* Navbar.css */
 
+/* General Styles */
 .navbar {
-  background-color: black;
   display: flex;
   justify-content: space-between;
-  color: white;
-  height: 24px;
-  padding: 1em 2em;
+  align-items: center;
+  background-color: blue;
+  color: #fff;
+  padding: 0px 0px;
 }
 
 .logo {
-  width: 24px;
-  height: 24px;
-  transform: scale(3);
+  height: 60px;
 }
 
-.navbar a {
-  color: inherit;
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 20px 0; /* Add margin to the top and bottom */
+  padding: 0;
+  justify-content: center; /* Center the links horizontally */
+}
+
+.nav-links li {
+  margin-right: 40px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0; /* Remove margin from the last link */
+}
+
+.nav-links li a {
+  color: #fff;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.navbar a:hover {
-  text-decoration: underline;
+.nav-links li a:hover {
+  color: #ccc; /* Change color on hover */
 }
+
 
 .icon {
-  display: flex; /* Add this line to make the icon div relatively positioned */
-  align-items: center; /* Align vertically */
+  display: flex;
+  align-items: center;
 }
 
-.button {
-  background: none;
+.icon button {
+  background-color: transparent;
   border: none;
-  color: white;
+  color: #fff;
   cursor: pointer;
-  width: fit-content;
-  padding: 30px;
+  font-size: 16px;
+  margin-left: 20px;
+  transition: color 0.3s ease;
 }
 
-button:hover {
-  text-decoration: underline;
+.icon button:hover {
+  color: #ccc;
+}
+
+.icon button a {
+  color: inherit;
+  text-decoration: none;
 }

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; // Import Link for navigation
 import "./Register.css"
 
 const Register = () => {
   const [user, setUser] = useState({ 
-  firstName: '',
-  lastName: '',
-  email: '',
-  password: '' });
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '' 
+  });
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -31,28 +33,29 @@ const Register = () => {
   };
 
   return (
-    <div class='container'>
-      <div class="form-box">
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-      <label>
-          <input type="text" placeholder="First Name" value={user.firstName} onChange={handleChange} />
-        </label>
-        <label>
-          
-          <input type="text" placeholder="Last Name" value={user.lastName} onChange={handleChange} />
-        </label>
-        <label>
-          
-          <input type="text" placeholder="Email" value={user.email} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          <input type="password" placeholder="Password" value={user.password} onChange={handleChange} />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
+    <div className='container'>
+      <div className="form-box">
+        <h1>Register</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <input type="text" placeholder="First Name" value={user.firstName} onChange={handleChange} name="firstName" />
+          </label>
+          <label>
+            <input type="text" placeholder="Last Name" value={user.lastName} onChange={handleChange} name="lastName" />
+          </label>
+          <label>
+            <input type="text" placeholder="Email" value={user.email} onChange={handleChange} name="email" />
+          </label>
+          <br />
+          <label>
+            <input type="password" placeholder="Password" value={user.password} onChange={handleChange} name="password" />
+          </label>
+          <br />
+          <button type="submit">Register</button>
+        </form>
+      </div>
+      <div className="login-link">
+        <span>Already have an account? <Link to="/login">Login</Link></span>
       </div>
     </div>
   );
