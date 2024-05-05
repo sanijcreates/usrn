@@ -10,7 +10,7 @@ export default function PostCard(props) {
     const formattedDate = date.toLocaleDateString(undefined, options);
 
     return (
-        <div className='main-container'>
+        <div className='main-container-card'>
             <h3 className='blog-title'>{props.title}</h3>
             <div className ="blog-container">
                 <div className = "credits">
@@ -19,7 +19,7 @@ export default function PostCard(props) {
                     <span>{formattedDate}</span>
                 </div>
                 <div className='content'>
-                    <p className='blog-meta-body'>{props.metaBody}</p>
+                    <div dangerouslySetInnerHTML={{ __html: props.metaBody}}/>
                 </div>
             </div>  
         </div>

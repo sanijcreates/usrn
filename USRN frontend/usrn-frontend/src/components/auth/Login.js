@@ -5,36 +5,28 @@ import "./Login.css";
 import { AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
-  // State to manage user input for email and password
   const [user, setUser] = useState({ email: '', password: '' });
 
-  // Function to handle changes in input fields
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post('http://localhost:8080/login', user)
       .then(response => {
-        // If login is successful, store user data in localStorage and redirect to home page
         console.log(response);
         localStorage.setItem("user", JSON.stringify(response.data));
         window.location.href = "/";
       })
       .catch(error => {
-        // If login fails, log the error
         console.error('Login failed:', error);
       });
   };
 
-  function handleCreateAcc() {
-    window.location.href = "/register"
-  }
-
   return (
-      <div className="form login">
+    <div className="container">
+      <div className="form-box">
         <header className='login__header'>Login</header>
         <div className="input-Field">
           <form onSubmit={handleSubmit}>
@@ -45,21 +37,19 @@ const Login = () => {
               <input type="password" name="password" placeholder="Password" value={user.password} onChange={handleChange} />
               <AiFillEyeInvisible />
             </div>
+            <div className="field button-field">
+              <button>Login</button>
+            </div>
             <div className="form-link">
-                      <a href="#" className="forgot-pass">Forgot password?</a>
-                  </div>
-                  <div className="field button-field">
-                      <button>Login</button>
-                  </div>
-      
-                  <div className="form-link">
-                  <span>Don't have an account? <a href="#" className="link signup-link">Signup</a></span>
-              </div>
-            <br/>
+              <a href="#" className="forgot-pass">Forgot password?</a>
+            </div>
+            <div className="form-link">
+              <span>Don't have an account? <Link to="/register" className="link signup-link">Signup</Link></span>
+            </div>
           </form>
         </div>
       </div>
-    
+    </div>
   );
 };
 
