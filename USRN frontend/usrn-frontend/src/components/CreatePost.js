@@ -6,7 +6,6 @@ import { stateToHTML } from 'draft-js-export-html';
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './CreatePost.css';
-import Login from './auth/Login';
 
 export default function CreatePost() {
     const [post, setPost] = useState({
